@@ -1,0 +1,28 @@
+{
+  "name": "@onq-challenge/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "node --watch src/index.js",
+    "start": "node scripts/wait-for-db.js && drizzle-kit push --force && yarn db:seed && yarn dev",
+    "wait-for-db": "node scripts/wait-for-db.js",
+    "db:push": "drizzle-kit push",
+    "db:generate": "drizzle-kit generate",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "db:seed": "node src/db/seed.js"
+  },
+  "dependencies": {
+    "@faker-js/faker": "9.5.1",
+    "cors": "2.8.5",
+    "dotenv": "16.4.7",
+    "drizzle-orm": "0.41.0",
+    "express": "5.1.0",
+    "pg": "8.13.3"
+  },
+  "devDependencies": {
+    "drizzle-kit": "0.31.0"
+  },
+  "packageManager": "yarn@4.6.0"
+}
