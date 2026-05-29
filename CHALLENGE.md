@@ -31,20 +31,25 @@ produce an *implementation plan* — and we'll evaluate how you scope and direct
 the work.
 
 Explore the existing code, ask clarifying questions, and drive Claude toward a
-plan that covers:
-
-- **Data model** — how you'd model the enrichment data in Postgres, and *why*
-  (and how you'd apply the schema change — see the Drizzle workflow in the API
-  README)
-- **API** — the new endpoint that triggers enrichment for a property: its
-  contract (method, path, request/response), how it calls the third party, and
-  how the result is persisted
-- **Web** — what changes on the detail page so a user can request enrichment
-  and see the result
+plan for wiring up enrichment across the database, the API, and the web app.
 
 A good plan names the trade-offs and the sharp edges — it doesn't paper over
 them. We're more interested in your judgment and how you drive the tool than in
 a tidy-looking document.
+
+## Questions your plan should answer
+
+- **Data model:** How would you store the enrichment data, and why that shape
+  over the alternatives? How would you apply the change to the database? (See
+  the Drizzle workflow in the API README.)
+- **API:** What's the new endpoint's contract — method, path, request, and
+  response? How does it call the third-party service, and how is the result
+  persisted?
+- **Web:** What changes on the detail page so a user can request enrichment and
+  see the result? What does the user see while it's loading, on success, and on
+  failure?
+- **Robustness:** What happens if a user triggers enrichment twice, or the
+  provider is unavailable?
 
 ## What's already done for you
 
