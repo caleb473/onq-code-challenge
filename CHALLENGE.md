@@ -13,17 +13,38 @@ API container.
 
 > See `enrichment-api/README.md` for the endpoint, auth, and response shape.
 
-## What we'd like you to build
+## What we want
 
-Wire up property enrichment end-to-end so that:
+We want to add property enrichment end-to-end so that:
 
 1. The API can fetch enrichment data for a property from the enrichment service
 2. The data is persisted in our Postgres database
 3. The web app's property detail page can show enrichment data when it exists
 
-The candidate-facing UI today shows an "No enrichment data yet" placeholder
-on the detail page — that placeholder should go away once enrichment data
-exists for a property.
+The detail page today shows a "No enrichment data yet" placeholder — that
+placeholder should go away once enrichment data exists for a property.
+
+## Your task: plan it, don't build it
+
+**You are not writing the final implementation.** Instead, use Claude Code to
+produce an *implementation plan* — and we'll evaluate how you scope and direct
+the work.
+
+Explore the existing code, ask clarifying questions, and drive Claude toward a
+plan that covers:
+
+- **Data model** — how you'd model the enrichment data in Postgres, and *why*
+  (and how you'd apply the schema change — see the Drizzle workflow in the API
+  README)
+- **API** — the new endpoint that triggers enrichment for a property: its
+  contract (method, path, request/response), how it calls the third party, and
+  how the result is persisted
+- **Web** — what changes on the detail page so a user can request enrichment
+  and see the result
+
+A good plan names the trade-offs and the sharp edges — it doesn't paper over
+them. We're more interested in your judgment and how you drive the tool than in
+a tidy-looking document.
 
 ## What's already done for you
 
@@ -32,24 +53,14 @@ exists for a property.
 - A property list and property detail page
 - The mock enrichment API, fully running (don't modify it)
 
-## What you'll need to do
-
-Roughly:
-
-- Decide how to model the enrichment data in the database
-- Add the schema change and apply it to the running database (the API
-  README walks through the Drizzle workflow)
-- Add an API endpoint that triggers enrichment for a property
-- Add UI to the detail page so a user can request enrichment and see the
-  result
-
 ## A note on questions
 
 This prompt is intentionally not fully spec'd. We expect you to ask us
-clarifying questions as you go — that's part of what we're evaluating.
-There are no trick questions; if something is unclear, just ask.
+clarifying questions as you go — that's part of what we're evaluating. There
+are no trick questions; if something is unclear, just ask.
 
 ## Time
 
-Aim for around 30 minutes of work. We don't expect every edge case to be
-handled — focus on getting the happy path working end-to-end first.
+Aim for around 10–15 minutes. We don't expect an exhaustive design doc — focus
+on a clear, correct plan for the happy path, and flag the edge cases you'd
+want to handle rather than solving every one.
